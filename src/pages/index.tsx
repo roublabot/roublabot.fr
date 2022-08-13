@@ -31,6 +31,16 @@ const Home: NextPage = () => {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
+
+        <meta property="og:title" content="Roublabot" />
+        <meta property="og:site_name" content="Roublabot" />
+        <meta property="og:url" content="roublabot.fr" />
+        <meta property="og:description" content="Roublabot landing page." />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://roublabot.fr/roublabot.png"
+        />
       </Head>
 
       <main className="bg-neutral-800">
