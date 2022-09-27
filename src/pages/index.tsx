@@ -3,6 +3,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { ProjectCard, ProjectCardProps } from '../components/projectItem';
+
+const projects: Array<ProjectCardProps> = [
+  {
+    name: 'La bloqueuse',
+    description:
+      'Dynamic client patcher and proxy server with packet injection.',
+    src: '/la-bloqueuse.png',
+    width: 200,
+    height: 200,
+    alt: 'Poupée sadida, la bloqueuse',
+  },
+  {
+    name: 'Le concasseur',
+    description:
+      "Extract dofus source code and assets, directly from ankama's servers.",
+    src: '/le-concasseur.png',
+    width: 197,
+    height: 244,
+    alt: 'Concasseur pour la forgemagie',
+  },
+];
 
 const Home: NextPage = () => {
   return (
@@ -43,24 +65,32 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <main className="bg-neutral-800">
-        <div className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
+      <div className="flex flex-col justify-between h-screen  bg-neutral-800 text-white ">
+        <main className="container mx-auto flex flex-col h-full items-center justify-around p-4">
           <Image
             src="/roublabot.png"
             width={200}
             height={200}
             alt="A picture of a roublabot invocation"
           />
-        </div>
-        <div className="fixed w-full bottom-0 flex justify-center">
+          <section className="2xl:container 2xl:mx-auto">
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-stretch items-stretch px-8">
+              {projects.map((project) => (
+                <ProjectCard key={project.name} {...project} />
+              ))}
+            </ul>
+          </section>
+        </main>
+
+        <footer className="w-full flex justify-center">
           <a href="https://github.com/roublabot" target="blank">
-            <div className="flex text-white mb-4 text-xl hover:text-neutral-400">
+            <div className="flex text-white mb-4 text-xl hover:text-neutral-400 hover:duration-150">
               <FontAwesomeIcon className="w-4 mr-1" icon={faGithub} />
               Roublabot
             </div>
           </a>
-        </div>
-      </main>
+        </footer>
+      </div>
     </>
   );
 };
